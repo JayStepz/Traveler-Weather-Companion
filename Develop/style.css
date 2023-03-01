@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display:block;
+}
+
+.title {
+    color: white;
+    font-size: xx-large;
+    background: linear-gradient(blue, white);
+    padding-bottom: 3px;
+    border-bottom: 1px solid black;
+}
