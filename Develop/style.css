@@ -3,8 +3,13 @@
     margin: 0;
 }
 
+header {
+    height: 6.5dvh;
+}
+
 body {
     display:block;
+    height: 100dvh;
 }
 
 .title {
@@ -13,4 +18,26 @@ body {
     background: linear-gradient(blue, white);
     padding-bottom: 3px;
     border-bottom: 1px solid black;
+}
+
+.container {
+    display:flex;
+    align-self: start;
+}
+
+p {
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.search {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.searchBtn {
+    color: black;
+    font-size: large;
+    margin-left:25px;
 }

@@ -13,14 +13,16 @@
 </head>
 
 <body>
-        
-        <header class="title text-center">Traveler's Weather Companion</header>
-        <div id="side-bar" class="column col-2">
-            <textarea class="search" rows="1"></textarea>
-            <button class="searchBtn" aria-label="search"></button>
-            <div id="history" class="column search-list"></div> 
-        </div>
-        <div id="displayArea" class="column col-9"></div>
+<header class="title text-center">Traveler's Weather Companion</header>
+
+    <div id="side-bar" class="column">
+        <p>Search for a City:</p>
+        <textarea class="search" rows="1"></textarea>
+        <button class="searchBtn" aria-label="search">Get Forecast</button>
+        <div id="history" class="column search-list"></div>
+        <div id="displayArea" class="column"></div> 
+    </div>
+  
     
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script
@@ -29,6 +31,5 @@
     crossorigin="anonymous"
 ></script>
 <script src="./Develop/script.js"></script>
-
 </body>
 </html>
