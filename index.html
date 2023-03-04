@@ -13,17 +13,40 @@
 </head>
 
 <body>
-<header class="title text-center">Traveler's Weather Companion</header>
-
-    <div id="side-bar" class="column">
-        <p>Search for a City:</p>
-        <textarea class="search" rows="1"></textarea>
-        <button class="searchBtn" aria-label="search">Get Forecast</button>
-        <div id="history" class="column search-list"></div>
-        <div id="displayArea" class="column"></div> 
+<header class="title text-center">Traveler's Weather Companion</header>  
+<div class="row content container-fluid">
+    <div class="sidebar text-center col-2">
+        <h1>Search A City:</h1>
+        <input type="text" class="form" placeholder="Type here">
+        <div>
+            <ul class="search-history"></ul>
+        </div>
     </div>
-  
-    
+    <div class="panel-group col-10 p-5">
+        <div>
+         <div class="current col-9">
+            <div class="day-1">Today</div>
+        </div>
+        <div class="row py-5 cast-group">
+            <h2>5-Day Forecast</h2>
+            <div class="forecast col-2">
+                <div class="day-2">Panel</div>
+            </div>
+            <div class="forecast col-2">
+                <div class="day-3">Panel</div>
+            </div>
+            <div class="forecast col-2">
+                <div class="day-4">Panel</div>
+            </div>
+            <div class="forecast col-2">
+                <div class="day-5">Panel</div>
+            </div>
+            <div class="forecast col-2">
+                <div class="day-6">Panel</div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script
     src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
