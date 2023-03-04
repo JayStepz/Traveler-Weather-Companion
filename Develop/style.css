@@ -19,6 +19,26 @@
     border-top: 1px solid black;
 }
 
+.history-item {
+    background-color: gray;
+    width:50px;
+    height:30px;
+}
+.history-item:hover {
+    cursor: pointer;
+}
+
+.searchBtn {
+    background-color: lightgray;
+    margin-top: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.searchBtn:hover {
+    cursor: pointer;
+}
+
 .current {
     background-color:white;
     border: 1px solid black;
@@ -30,6 +50,6 @@
 }
 
 .cast-group {
-    display:flex;
+    display: flex;
     justify-content: space-between;
 }
