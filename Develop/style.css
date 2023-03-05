@@ -4,7 +4,7 @@
 }
 
 .title {
-    color: white;
+    color: black;
     font-size: xx-large;
     background: linear-gradient(blue, white);
     padding-bottom: 3px;
@@ -40,7 +40,7 @@
 }
 
 .current {
-    background-color:white;
+    background-color:lightgray;
     border: 1px solid black;
 }
 
@@ -52,4 +52,24 @@
 .cast-group {
     display: flex;
     justify-content: space-between;
+}
+
+.day-1 {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.date {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.temperature,
+.temperature-1,
+.wind,
+.wind-1,
+.humidity,
+.humidity-1 {
+    font-size: larger;
+    font-weight: 400;
 }
