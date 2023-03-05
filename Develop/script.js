@@ -2,7 +2,7 @@
 // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
 // My call
-// http://api.openweathermap.org/geo/1.0/onecall?q={city name},{state code},US&lang=en&exclude=minutely,hourly,alerts&units=imperial&appid=[REDACTED]
+// http://api.openweathermap.org/geo/1.0/onecall?q={city name},{state code},US&lang=en&exclude=minutely,hourly,alerts&units=imperial&appid=d9f292cdf3df11c3df01f2dce7d83ce1
 // Have input push into {city name}? Add {state code} input for same {city name} in multiple states?
 
 
@@ -18,7 +18,7 @@
 // Makes new call using city and state from history item
 
 // global variable for API call URL
- var URL = "http://api.openweathermap.org/geo/1.0/onecall?q=city,US&lang=en&exclude=minutely,hourly,alerts&units=imperial&appid=[REDACTED]"
+ var URL = "http://api.openweathermap.org/geo/1.0/onecall?q=city,US&lang=en&exclude=minutely,hourly,alerts&units=imperial&appid=d9f292cdf3df11c3df01f2dce7d83ce1"
 
 // function taking input, pushing into URL, then submitting
 
@@ -33,7 +33,7 @@
 // Function start
 $(".searchBtn").click(function() {
     var userInput = document.getElementById("userInput"); //ex: atlanta
-    var submitURL = URL.replace('city', userInput.value); //result: "http://api.openweathermap.org/geo/1.0/onecall?q=atlanta,US&lang=en&exclude=minutely,hourly,alerts&units=imperial&appid=[REDACTED]"
+    var submitURL = URL.replace('city', userInput.value); //result: "http://api.openweathermap.org/geo/1.0/onecall?q=atlanta,US&lang=en&exclude=minutely,hourly,alerts&units=imperial&appid=d9f292cdf3df11c3df01f2dce7d83ce1"
 
     fetch(submitURL) //submitURL is submitted to API
     .then(function (response) {
