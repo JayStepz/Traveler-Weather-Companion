@@ -20,13 +20,14 @@
 var mainURL = "http://api.openweathermap.org/data/2.5"
 var userInput = document.getElementById("userInput"); //ex: atlanta
 
-// Function start
+// Search function start
 $(".searchBtn").click(function() {
-    getCurrent(userInput);
-    getForecast(userInput);
-    //setHistory();
+    //getCurrent(userInput);
+    //getForecast(userInput);
+    setHistory(userInput);
 });
 
+// Fills the Current panel
 function getCurrent(userInput) {
     var endpoint = "/weather?q=" + userInput.value + ",US&lang=en&appid=d9f292cdf3df11c3df01f2dce7d83ce1&units=imperial"
     var submitURL = mainURL + endpoint;
@@ -42,19 +43,12 @@ function getCurrent(userInput) {
                 $('.temperature-1').html(data.main.temp + " Fahrenheit");
                 $('.wind-1').html(data.wind.speed + " MPH");
                 $('.humidity-1').html(data.main.humidity + " %");
-
-                
-                console.log(myDate);
-                console.log(emblem);
-                console.log(data.main.temp);
-                console.log(data.wind.speed);
-                console.log(data.main.humidity);
-                console.log(data);
             });
         }
     })
 }
 
+// Fills the Forecast panels
 function getForecast(userInput) {
     var endpoint = "/forecast?q=" + userInput.value + ",US&lang=en&appid=d9f292cdf3df11c3df01f2dce7d83ce1&units=imperial";
     var submitURL = mainURL + endpoint;
@@ -64,9 +58,6 @@ function getForecast(userInput) {
     .then(function (response) {
         if (200 === response.status) {
             response.json().then(function (data) {
-               // var data.list = JSON.parse(data.list)
-                //console.log(data.list.length);
-                console.log(data.list.length);
                 var myDate = null;
                 var emblem = null;
 
@@ -83,12 +74,19 @@ function getForecast(userInput) {
                     j++;
                     i+=7;
                 }
-                console.log(data.list[0]);
-                console.log(data.list[8]);
-                console.log(data.list[16]);
-                console.log(data.list[24]);
-                console.log(data.list[32]);
             });
         }
     })
 }
+
+// Sets searches as buttons
+function setHistory(userInput) {
+    $('#search-history').prepend('<button id="history-item" class="poopy" type="button">' + userInput.value + '</button>');
+    console.log(document.getElementById("history-item").innerHTML);
+}
+
+// History retrieval function
+$('.poopy').on('click', function() {
+    //console.log(document.getElementById("history-item").innerHTML);
+    alert(userInput.value);
+});
