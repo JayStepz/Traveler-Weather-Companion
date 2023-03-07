@@ -1,6 +1,7 @@
 # Traveler's Weather Companion
-[preview image here]
-[url here]
+(Note: API key was locked from a bad loop I made during the page creation. I sent an email to unlock it with no response as of this moment.)
+![JayStepz](./Assets/WeatherPagePreview.png "Weather Page Preview")
+https://jaystepz.github.io/Traveler-Weather-Companion/
 ## Overview
 Use this to check the current weather and 5-day forecast of any city in the US.
 ## How to Use
