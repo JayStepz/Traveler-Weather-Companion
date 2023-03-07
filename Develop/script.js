@@ -1,29 +1,11 @@
-// API call example
-// http://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&limit={limit}&appid={API key}&units={units}
-
-// My call
-// http://api.openweathermap.org/data/2.5/weather?q={city name},{state code},US&lang=en&exclude=minutely,hourly,alerts&appid=d9f292cdf3df11c3df01f2dce7d83ce1&units=imperial
-// Have input push into {city name}? Add {state code} input for same {city name} in multiple states?
-
-
-// Order:
-// User types input data (city)
-// User clicks Search button (searchBtn)
-// Take input data, push into URL before call
-// Take result (Option: If multiple city name in different states, pop up modal with city and state list to choose from)
-// Store data locally
-// Display data in appropriate panels
-// Display search result in history list (append as li?)
-// Click history item
-// Makes new call using city and state from history item
-
 var mainURL = "http://api.openweathermap.org/data/2.5"
 var userInput = document.getElementById("userInput"); //ex: atlanta
 
 // Search function start
+// Exectutes fetches for current weather and forecast and creates a button in the history
 $(".searchBtn").click(function() {
-    //getCurrent(userInput);
-    //getForecast(userInput);
+    getCurrent(userInput);
+    getForecast(userInput);
     setHistory(userInput);
 });
 
@@ -32,7 +14,7 @@ function getCurrent(userInput) {
     var endpoint = "/weather?q=" + userInput.value + ",US&lang=en&appid=d9f292cdf3df11c3df01f2dce7d83ce1&units=imperial"
     var submitURL = mainURL + endpoint;
 
-    fetch(submitURL) //submitURL is submitted to API
+    fetch(submitURL) //full URL is fetched for current weather (Note "/weather" in this URL)
     .then(function (response) {
         if (200 === response.status) {
             response.json().then(function (data) {
@@ -54,13 +36,14 @@ function getForecast(userInput) {
     var submitURL = mainURL + endpoint;
     var j = 2;
 
-    fetch(submitURL)
+    fetch(submitURL) //full URL is fetched for forecast (Note "/forecast" in this URL)
     .then(function (response) {
         if (200 === response.status) {
             response.json().then(function (data) {
-                var myDate = null;
-                var emblem = null;
-
+                var myDate = null; // I don't remember why Brandon advised I made these null variables but I trust him
+                var emblem = null; // Might have been to make sure there weren't conflicts with the same named variables in the getCurrent function
+                
+                // loop to put info in each forecast panel
                 for (var i = 0; i < data.list.length; i++) {
                     myDate = new Date(data.list[i].dt *1000).toLocaleDateString();
                     emblem = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
@@ -70,9 +53,8 @@ function getForecast(userInput) {
                     $('.temperature').html(data.list[i].main.temp + " Fahrenheit");
                     $('.wind').html(data.list[i].wind.speed + " MPH");
                     $('.humidity').html(data.list[i].main.humidity + " %");
-                    console.log(j);
-                    j++;
-                    i+=7;
+                    j++; // for each day, 2 - 6
+                    i+=7; // for taking specifically spaced JSON objects in an attempt to pull a unique JSON for each day
                 }
             });
         }
@@ -81,12 +63,10 @@ function getForecast(userInput) {
 
 // Sets searches as buttons
 function setHistory(userInput) {
-    $('#search-history').prepend('<button id="history-item" class="poopy" type="button">' + userInput.value + '</button>');
-    console.log(document.getElementById("history-item").innerHTML);
+    $('#search-history').prepend('<button id="history-item" type="button">' + userInput.value + '</button>');
 }
 
-// History retrieval function
-$('.poopy').on('click', function() {
-    //console.log(document.getElementById("history-item").innerHTML);
-    alert(userInput.value);
-});
+// History retrieval function (couldn't get this to work and running out of time)
+//$('#history-item').on('click', function() {
+    //alert(userInput.value); Commented out from when I was trying to troubleshoot
+//});
